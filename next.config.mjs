@@ -5,6 +5,10 @@ const nextConfig = {
   },
   images: {
     domains: ['images.unsplash.com', 'cdn.sanity.io'],
+    unoptimized: true
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production'
   }
 }
 

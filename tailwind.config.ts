@@ -25,7 +25,7 @@ const config: Config = {
         foreground: "hsl(var(--foreground))",
         studio: {
           dark: "#0A0A0A",
-          charcoal: "#1A1A1A",
+          charcoal: "#1A1A1A", 
           gold: "#D4AF37",
           silver: "#C0C0C0",
           red: "#DC2626",
