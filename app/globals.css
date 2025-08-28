@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 10 10 10; /* Deep black */
+    --foreground: 245 245 245; /* Off-white */
+    --card: 26 26 26; /* Dark charcoal */
+    --card-foreground: 245 245 245;
+    --popover: 26 26 26;
+    --popover-foreground: 245 245 245;
+    --primary: 212 175 55; /* Gold */
+    --primary-foreground: 10 10 10;
+    --secondary: 64 64 64; /* Medium gray */
+    --secondary-foreground: 245 245 245;
+    --muted: 38 38 38;
+    --muted-foreground: 156 163 175;
+    --accent: 192 192 192; /* Silver */
+    --accent-foreground: 10 10 10;
+    --destructive: 220 38 38;
+    --destructive-foreground: 248 250 252;
+    --border: 38 38 38;
+    --input: 38 38 38;
+    --ring: 212 175 55;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 10 10 10;
+    --foreground: 245 245 245;
+    --card: 26 26 26;
+    --card-foreground: 245 245 245;
+    --popover: 26 26 26;
+    --popover-foreground: 245 245 245;
+    --primary: 212 175 55;
+    --primary-foreground: 10 10 10;
+    --secondary: 64 64 64;
+    --secondary-foreground: 245 245 245;
+    --muted: 38 38 38;
+    --muted-foreground: 156 163 175;
+    --accent: 192 192 192;
+    --accent-foreground: 10 10 10;
+    --destructive: 220 38 38;
+    --destructive-foreground: 248 250 252;
+    --border: 38 38 38;
+    --input: 38 38 38;
+    --ring: 212 175 55;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* Studio-specific animations and effects */
+@layer components {
+  .studio-gradient {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #2A2A2A 100%);
+  }
+  
+  .gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+  }
+  
+  .glass-effect {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  
+  .glow-effect {
+    box-shadow: 
+      0 0 20px rgba(212, 175, 55, 0.3),
+      0 0 40px rgba(212, 175, 55, 0.1),
+      inset 0 0 20px rgba(212, 175, 55, 0.1);
+  }
+  
+  .text-glow {
+    text-shadow: 
+      0 0 10px rgba(212, 175, 55, 0.5),
+      0 0 20px rgba(212, 175, 55, 0.3),
+      0 0 30px rgba(212, 175, 55, 0.2);
+  }
+  
+  .studio-card {
+    @apply glass-effect rounded-lg p-6 transition-all duration-300 hover:scale-105 hover:glow-effect;
+  }
+  
+  .hero-text {
+    @apply font-display font-bold text-6xl md:text-8xl lg:text-9xl leading-none tracking-tight;
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #C0C0C0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  }
+  
+  .section-title {
+    @apply font-display font-semibold text-4xl md:text-5xl lg:text-6xl text-studio-gold mb-8;
+  }
+  
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #D4AF37, #C0C0C0);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #FFD700, #E5E5E5);
+}
+
+/* Audio waveform animation */
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(2); }
+}
+
+.wave-bar {
+  animation: wave 1.5s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.wave-bar:nth-child(5) { animation-delay: 0.4s; }
+
+/* Vinyl record animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-spin {
+  animation: spin 8s linear infinite;
+}
+
+/* Studio lighting effect */
+.studio-lighting {
+  position: relative;
+  overflow: hidden;
+}
+
+.studio-lighting::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(212, 175, 55, 0.1) 50%,
+    transparent 70%
+  );
+  animation: sweep 3s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  50% { transform: translateX(0%) translateY(0%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}
+
+/* Responsive design utilities */
+@media (max-width: 768px) {
+  .hero-text {
+    @apply text-4xl md:text-6xl;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl;
+  }
+}

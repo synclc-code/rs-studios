@@ -1,0 +1,219 @@
+"use client"
+
+import React, { useState, useEffect } from 'react'
+import { Button } from '@/components/ui/button'
+import { 
+  Menu, 
+  X, 
+  Music, 
+  Phone, 
+  Mail,
+  MapPin,
+  Headphones,
+  Mic,
+  Settings,
+  Award
+} from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { cn } from '@/lib/utils'
+
+interface NavLink {
+  name: string
+  href: string
+  icon?: React.ReactNode
+}
+
+const navLinks: NavLink[] = [
+  { name: 'Home', href: '#home' },
+  { name: 'Services', href: '#services', icon: <Headphones className="h-4 w-4" /> },
+  { name: 'Studio', href: '#studio', icon: <Mic className="h-4 w-4" /> },
+  { name: 'Portfolio', href: '#portfolio', icon: <Award className="h-4 w-4" /> },
+  { name: 'About', href: '#about', icon: <Music className="h-4 w-4" /> },
+  { name: 'Contact', href: '#contact', icon: <Phone className="h-4 w-4" /> },
+]
+
+export function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+    setIsMobileMenuOpen(false)
+  }
+
+  return (
+    <>
+      <motion.nav
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          isScrolled 
+            ? "glass-effect backdrop-blur-xl border-b border-studio-gold/20" 
+            : "bg-transparent"
+        )}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            {/* Logo */}
+            <motion.div 
+              className="flex items-center space-x-3"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="relative">
+                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-studio-gold rounded-full flex items-center justify-center">
+                  <Music className="h-6 w-6 lg:h-7 lg:w-7 text-studio-dark" />
+                </div>
+                <div className="absolute inset-0 bg-studio-gold rounded-full animate-ping opacity-20"></div>
+              </div>
+              <div className="hidden sm:block">
+                <h1 className="font-display font-bold text-xl lg:text-2xl text-white">
+                  River City
+                  <span className="text-studio-gold"> Studios</span>
+                </h1>
+                <p className="text-xs lg:text-sm text-gray-400 font-light">
+                  Est. 1977
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              {navLinks.map((link, index) => (
+                <motion.button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href)}
+                  className="group flex items-center space-x-2 text-gray-300 hover:text-studio-gold transition-colors duration-300 relative"
+                  whileHover={{ y: -2 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {link.icon && (
+                    <span className="group-hover:text-studio-gold transition-colors duration-300">
+                      {link.icon}
+                    </span>
+                  )}
+                  <span className="font-medium">{link.name}</span>
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-studio-gold group-hover:w-full transition-all duration-300"></div>
+                </motion.button>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div className="hidden lg:flex items-center space-x-4">
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="border-studio-gold/30 text-studio-gold hover:bg-studio-gold hover:text-studio-dark"
+              >
+                <Phone className="h-4 w-4 mr-2" />
+                Call Now
+              </Button>
+              <Button 
+                variant="gold" 
+                size="sm"
+                className="glow-effect"
+              >
+                <Mic className="h-4 w-4 mr-2" />
+                Book Studio
+              </Button>
+            </div>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 rounded-md text-gray-300 hover:text-studio-gold hover:bg-studio-gold/10 transition-colors duration-300"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-40 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Backdrop */}
+            <div 
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Menu Panel */}
+            <motion.div
+              className="absolute top-16 left-0 right-0 bg-studio-charcoal/95 backdrop-blur-xl border-b border-studio-gold/20"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="px-4 py-6 space-y-4">
+                {navLinks.map((link, index) => (
+                  <motion.button
+                    key={link.name}
+                    onClick={() => scrollToSection(link.href)}
+                    className="flex items-center space-x-3 w-full p-3 rounded-lg text-gray-300 hover:text-studio-gold hover:bg-studio-gold/10 transition-colors duration-300"
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    {link.icon && (
+                      <span className="text-studio-gold">
+                        {link.icon}
+                      </span>
+                    )}
+                    <span className="font-medium text-lg">{link.name}</span>
+                  </motion.button>
+                ))}
+                
+                {/* Mobile CTA Buttons */}
+                <div className="pt-4 space-y-3 border-t border-studio-gold/20">
+                  <Button 
+                    variant="outline" 
+                    className="w-full border-studio-gold/30 text-studio-gold hover:bg-studio-gold hover:text-studio-dark"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Phone className="h-4 w-4 mr-2" />
+                    Call (616) 454-7600
+                  </Button>
+                  <Button 
+                    variant="gold" 
+                    className="w-full glow-effect"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Mic className="h-4 w-4 mr-2" />
+                    Book Studio Time
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
