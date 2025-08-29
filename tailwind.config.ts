@@ -24,10 +24,10 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         studio: {
-          dark: "#0A0A0A",
-          charcoal: "#1A1A1A", 
-          gold: "#D4AF37",
-          silver: "#C0C0C0",
+          dark: "#000000",
+          charcoal: "#0a0a0a", 
+          teal: "#91d3c0",
+          blue: "#669ea2",
           red: "#DC2626",
           orange: "#EA580C",
         },
@@ -76,11 +76,11 @@ const config: Config = {
         },
         "pulse-glow": {
           "0%, 100%": { 
-            boxShadow: "0 0 20px rgba(212, 175, 55, 0.3)",
+            boxShadow: "0 0 20px rgba(145, 211, 192, 0.3)",
             transform: "scale(1)"
           },
           "50%": { 
-            boxShadow: "0 0 40px rgba(212, 175, 55, 0.6)",
+            boxShadow: "0 0 40px rgba(145, 211, 192, 0.6)",
             transform: "scale(1.02)"
           },
         },
@@ -91,6 +91,30 @@ const config: Config = {
         "slide-up": {
           "0%": { transform: "translateY(100px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "slide-up-word": {
+          "0%": { transform: "translateY(50px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "elegant-fade-up": {
+          "0%": { 
+            transform: "translateY(20px)", 
+            opacity: "0" 
+          },
+          "100%": { 
+            transform: "translateY(0)", 
+            opacity: "1" 
+          },
+        },
+        "waveform-pulse": {
+          "0%, 100%": { 
+            transform: "scaleY(1)",
+            opacity: "0.6"
+          },
+          "50%": { 
+            transform: "scaleY(1.2)",
+            opacity: "1"
+          },
         },
         "fade-in": {
           "0%": { opacity: "0" },
@@ -107,6 +131,9 @@ const config: Config = {
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         "float": "float 6s ease-in-out infinite",
         "slide-up": "slide-up 0.8s ease-out",
+        "slide-up-word": "slide-up-word 0.6s ease-out",
+        "elegant-fade-up": "elegant-fade-up 0.8s ease-out",
+        "waveform-pulse": "waveform-pulse 1.5s ease-in-out infinite",
         "fade-in": "fade-in 1s ease-out",
         "scale-in": "scale-in 0.6s ease-out",
       },

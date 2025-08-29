@@ -4,7 +4,7 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'outline' | 'ghost' | 'gold' | 'silver'
+  variant?: 'default' | 'outline' | 'ghost' | 'teal' | 'blue'
   size?: 'default' | 'sm' | 'lg' | 'xl'
   children: React.ReactNode
 }
@@ -22,8 +22,8 @@ export function Button({
     default: "bg-primary text-primary-foreground hover:bg-primary/90",
     outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
     ghost: "hover:bg-accent hover:text-accent-foreground",
-    gold: "bg-studio-gold text-studio-dark hover:bg-studio-gold/90 glow-effect font-semibold",
-    silver: "bg-studio-silver text-studio-dark hover:bg-studio-silver/90 glow-effect font-semibold"
+    teal: "bg-studio-teal text-studio-dark hover:bg-studio-teal/90 glow-effect font-semibold",
+    blue: "bg-studio-blue text-white hover:bg-studio-blue/90 glow-effect font-semibold"
   }
   
   const sizes = {

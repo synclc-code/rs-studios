@@ -6,48 +6,48 @@
 
 @layer base {
   :root {
-    --background: 10 10 10; /* Deep black */
+    --background: 0 0 0; /* Pure black */
     --foreground: 245 245 245; /* Off-white */
-    --card: 26 26 26; /* Dark charcoal */
+    --card: 10 10 10; /* Very dark gray */
     --card-foreground: 245 245 245;
-    --popover: 26 26 26;
+    --popover: 10 10 10;
     --popover-foreground: 245 245 245;
-    --primary: 212 175 55; /* Gold */
-    --primary-foreground: 10 10 10;
-    --secondary: 64 64 64; /* Medium gray */
+    --primary: 145 211 192; /* #91d3c0 */
+    --primary-foreground: 0 0 0;
+    --secondary: 102 158 162; /* #669ea2 */
     --secondary-foreground: 245 245 245;
-    --muted: 38 38 38;
+    --muted: 15 15 15;
     --muted-foreground: 156 163 175;
-    --accent: 192 192 192; /* Silver */
-    --accent-foreground: 10 10 10;
+    --accent: 102 158 162; /* #669ea2 */
+    --accent-foreground: 245 245 245;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
-    --border: 38 38 38;
-    --input: 38 38 38;
-    --ring: 212 175 55;
+    --border: 20 20 20;
+    --input: 20 20 20;
+    --ring: 145 211 192;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 10 10 10;
+    --background: 0 0 0;
     --foreground: 245 245 245;
-    --card: 26 26 26;
+    --card: 10 10 10;
     --card-foreground: 245 245 245;
-    --popover: 26 26 26;
+    --popover: 10 10 10;
     --popover-foreground: 245 245 245;
-    --primary: 212 175 55;
-    --primary-foreground: 10 10 10;
-    --secondary: 64 64 64;
+    --primary: 145 211 192;
+    --primary-foreground: 0 0 0;
+    --secondary: 102 158 162;
     --secondary-foreground: 245 245 245;
-    --muted: 38 38 38;
+    --muted: 15 15 15;
     --muted-foreground: 156 163 175;
-    --accent: 192 192 192;
-    --accent-foreground: 10 10 10;
+    --accent: 102 158 162;
+    --accent-foreground: 245 245 245;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
-    --border: 38 38 38;
-    --input: 38 38 38;
-    --ring: 212 175 55;
+    --border: 20 20 20;
+    --input: 20 20 20;
+    --ring: 145 211 192;
   }
 }
 
@@ -69,32 +69,32 @@
 /* Studio-specific animations and effects */
 @layer components {
   .studio-gradient {
-    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #2A2A2A 100%);
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
   }
   
-  .gold-gradient {
-    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+  .teal-gradient {
+    background: linear-gradient(135deg, #91d3c0 0%, #669ea2 50%, #2f2a67 100%);
   }
   
   .glass-effect {
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(10, 10, 10, 0.9);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(145, 211, 192, 0.1);
   }
   
   .glow-effect {
     box-shadow: 
-      0 0 20px rgba(212, 175, 55, 0.3),
-      0 0 40px rgba(212, 175, 55, 0.1),
-      inset 0 0 20px rgba(212, 175, 55, 0.1);
+      0 0 20px rgba(145, 211, 192, 0.3),
+      0 0 40px rgba(145, 211, 192, 0.1),
+      inset 0 0 20px rgba(145, 211, 192, 0.1);
   }
   
   .text-glow {
     text-shadow: 
-      0 0 10px rgba(212, 175, 55, 0.5),
-      0 0 20px rgba(212, 175, 55, 0.3),
-      0 0 30px rgba(212, 175, 55, 0.2);
+      0 0 10px rgba(145, 211, 192, 0.5),
+      0 0 20px rgba(145, 211, 192, 0.3),
+      0 0 30px rgba(145, 211, 192, 0.2);
   }
   
   .studio-card {
@@ -103,15 +103,15 @@
   
   .hero-text {
     @apply font-display font-bold text-6xl md:text-8xl lg:text-9xl leading-none tracking-tight;
-    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #C0C0C0 100%);
+    background: linear-gradient(135deg, #91d3c0 0%, #669ea2 50%, #2f2a67 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    text-shadow: 0 0 30px rgba(145, 211, 192, 0.3);
   }
   
   .section-title {
-    @apply font-display font-semibold text-4xl md:text-5xl lg:text-6xl text-studio-gold mb-8;
+    @apply font-display font-semibold text-4xl md:text-5xl lg:text-6xl text-studio-teal mb-8;
   }
   
   .floating-element {
@@ -132,16 +132,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #1A1A1A;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #D4AF37, #C0C0C0);
+  background: linear-gradient(135deg, #91d3c0, #669ea2);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #FFD700, #E5E5E5);
+  background: linear-gradient(135deg, #91d3c0, #669ea2);
 }
 
 /* Audio waveform animation */
@@ -185,7 +185,7 @@
   background: linear-gradient(
     45deg,
     transparent 30%,
-    rgba(212, 175, 55, 0.1) 50%,
+    rgba(145, 211, 192, 0.1) 50%,
     transparent 70%
   );
   animation: sweep 3s ease-in-out infinite;
