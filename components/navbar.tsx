@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
+import { MobileMenu } from '@/components/mobile-menu'
 import { 
   Menu, 
   X, 
@@ -214,71 +215,11 @@ export function Navbar() {
       </motion.nav>
 
       {/* Mobile Navigation Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-40 lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {/* Backdrop */}
-            <div 
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            
-            {/* Menu Panel */}
-            <motion.div
-              className="absolute top-16 left-0 right-0 bg-studio-charcoal/95 backdrop-blur-xl border-b border-studio-teal/20"
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="px-4 py-6 space-y-4">
-                {navLinks.map((link, index) => (
-                  <motion.button
-                    key={link.name}
-                    onClick={() => scrollToSection(link.href)}
-                    className="flex items-center space-x-3 w-full p-3 rounded-lg text-gray-300 hover:text-studio-teal hover:bg-studio-teal/10 transition-colors duration-300"
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    {link.icon && (
-                      <span className="text-studio-teal">
-                        {link.icon}
-                      </span>
-                    )}
-                    <span className="font-medium text-lg">{link.name}</span>
-                  </motion.button>
-                ))}
-                
-                {/* Mobile CTA Buttons */}
-                <div className="pt-4 space-y-3 border-t border-studio-teal/20">
-                  <Button 
-                    variant="outline" 
-                    className="w-full border-studio-teal/30 text-studio-teal hover:bg-studio-teal hover:text-studio-dark"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <Phone className="h-4 w-4 mr-2" />
-                    Call (616) 454-7600
-                  </Button>
-                  <Button 
-                    variant="teal" 
-                    className="w-full glow-effect"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <Mic className="h-4 w-4 mr-2" />
-                    Book Studio Time
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <MobileMenu 
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        navLinks={navLinks}
+      />
     </>
   )
 }
