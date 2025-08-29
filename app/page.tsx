@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { Navbar } from '@/components/navbar'
+import FloatingActionButtons from '@/components/floating-action-buttons'
 import { 
   Music, 
   Mic, 
@@ -801,6 +802,7 @@ export default function HomePage() {
         <ContactSection />
       </main>
       <Footer />
+      <FloatingActionButtons />
     </>
   )
 }

@@ -74,7 +74,7 @@ export function Navbar() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled 
             ? "glass-effect backdrop-blur-xl border-b border-studio-teal/20" 
-            : "bg-transparent"
+            : "bg-transparent lg:bg-transparent bg-gray-900/30"
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -84,7 +84,7 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <motion.div 
-              className="flex items-center space-x-3"
+              className="flex items-center space-x-3 flex-shrink-0"
               whileHover={{ scale: 1.05 }}
             >
               <div className="relative">
@@ -199,10 +199,10 @@ export function Navbar() {
               </Button>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button - Always visible on mobile/tablet */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-md text-gray-300 hover:text-studio-teal hover:bg-studio-teal/10 transition-colors duration-300"
+              className="lg:hidden p-3 rounded-lg bg-gray-900/70 border border-gray-600/60 text-gray-200 hover:text-studio-teal hover:bg-studio-teal/10 hover:border-studio-teal/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-studio-teal/50 relative z-10 shadow-lg backdrop-blur-sm"
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6" />
