@@ -6,47 +6,47 @@
 
 @layer base {
   :root {
-    --background: 36 36 36; /* #242424 */
+    --background: 0 0 0; /* Pure black */
     --foreground: 245 245 245; /* Off-white */
-    --card: 47 42 103; /* #2f2a67 */
+    --card: 10 10 10; /* Very dark gray */
     --card-foreground: 245 245 245;
-    --popover: 47 42 103;
+    --popover: 10 10 10;
     --popover-foreground: 245 245 245;
     --primary: 145 211 192; /* #91d3c0 */
-    --primary-foreground: 36 36 36;
+    --primary-foreground: 0 0 0;
     --secondary: 102 158 162; /* #669ea2 */
     --secondary-foreground: 245 245 245;
-    --muted: 47 42 103;
+    --muted: 15 15 15;
     --muted-foreground: 156 163 175;
     --accent: 102 158 162; /* #669ea2 */
     --accent-foreground: 245 245 245;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
-    --border: 47 42 103;
-    --input: 47 42 103;
+    --border: 20 20 20;
+    --input: 20 20 20;
     --ring: 145 211 192;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 36 36 36;
+    --background: 0 0 0;
     --foreground: 245 245 245;
-    --card: 47 42 103;
+    --card: 10 10 10;
     --card-foreground: 245 245 245;
-    --popover: 47 42 103;
+    --popover: 10 10 10;
     --popover-foreground: 245 245 245;
     --primary: 145 211 192;
-    --primary-foreground: 36 36 36;
+    --primary-foreground: 0 0 0;
     --secondary: 102 158 162;
     --secondary-foreground: 245 245 245;
-    --muted: 47 42 103;
+    --muted: 15 15 15;
     --muted-foreground: 156 163 175;
     --accent: 102 158 162;
     --accent-foreground: 245 245 245;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
-    --border: 47 42 103;
-    --input: 47 42 103;
+    --border: 20 20 20;
+    --input: 20 20 20;
     --ring: 145 211 192;
   }
 }
@@ -69,7 +69,7 @@
 /* Studio-specific animations and effects */
 @layer components {
   .studio-gradient {
-    background: linear-gradient(135deg, #242424 0%, #2f2a67 50%, #669ea2 100%);
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
   }
   
   .teal-gradient {
@@ -77,7 +77,7 @@
   }
   
   .glass-effect {
-    background: rgba(47, 42, 103, 0.8);
+    background: rgba(10, 10, 10, 0.9);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(145, 211, 192, 0.1);
@@ -132,7 +132,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #2f2a67;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
