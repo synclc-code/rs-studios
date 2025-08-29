@@ -24,10 +24,10 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         studio: {
-          dark: "#0A0A0A",
-          charcoal: "#1A1A1A", 
-          gold: "#D4AF37",
-          silver: "#C0C0C0",
+          dark: "#242424",
+          charcoal: "#2f2a67", 
+          teal: "#91d3c0",
+          blue: "#669ea2",
           red: "#DC2626",
           orange: "#EA580C",
         },
@@ -76,11 +76,11 @@ const config: Config = {
         },
         "pulse-glow": {
           "0%, 100%": { 
-            boxShadow: "0 0 20px rgba(212, 175, 55, 0.3)",
+            boxShadow: "0 0 20px rgba(145, 211, 192, 0.3)",
             transform: "scale(1)"
           },
           "50%": { 
-            boxShadow: "0 0 40px rgba(212, 175, 55, 0.6)",
+            boxShadow: "0 0 40px rgba(145, 211, 192, 0.6)",
             transform: "scale(1.02)"
           },
         },

@@ -29,9 +29,9 @@ function HeroSection() {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden studio-gradient">\
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-studio-gold/10 rounded-full blur-3xl animate-pulse-glow"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-studio-silver/10 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-128 h-128 bg-gradient-to-r from-studio-gold/5 to-studio-silver/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-studio-teal/10 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-studio-blue/10 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-128 h-128 bg-gradient-to-r from-studio-teal/5 to-studio-blue/5 rounded-full blur-3xl"></div>
       </div>
       
       {/* Studio lighting effect */}
@@ -42,18 +42,18 @@ function HeroSection() {
           <h1 className="hero-text mb-6">
             RIVER CITY
             <br />
-            <span className="text-studio-silver">STUDIOS</span>
+            <span className="text-studio-blue">STUDIOS</span>
           </h1>
           
           <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-            Michigan's longest-running recording and production studio
+            Premier recording and production facilities
             <br />
-            <span className="text-studio-gold font-semibold">47+ years of excellence</span> • 
-            <span className="text-studio-silver font-semibold"> From local to label</span>
+            <span className="text-studio-teal font-semibold">Professional quality</span> • 
+            <span className="text-studio-blue font-semibold"> Advanced technology</span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <Button variant="gold" size="xl" className="animate-scale-in">
+            <Button variant="teal" size="xl" className="animate-scale-in">
               <Music className="mr-2 h-6 w-6" />
               Book Studio Time
             </Button>
@@ -68,7 +68,7 @@ function HeroSection() {
             {[...Array(20)].map((_, i) => (
               <div 
                 key={i}
-                className={`wave-bar bg-studio-gold w-2 h-4 rounded-t`}
+                className={`wave-bar bg-studio-teal w-2 h-4 rounded-t`}
                 style={{ 
                   animationDelay: `${i * 0.1}s`,
                   height: `${Math.random() * 40 + 10}px`
@@ -88,27 +88,27 @@ function ServicesSection() {
   const services = [
     {
       icon: <Mic className="h-8 w-8" />,
-      title: "Recording",
-      description: "Professional multi-track recording with vintage and modern equipment",
-      features: ["24-bit, 96KHz sampling", "Focusrite class-A mic pre-amps", "Large format capabilities"]
+      title: "Audio Production",
+      description: "Professional recording services for corporate media and content",
+      features: ["High-quality digital recording", "Multi-track capabilities", "Professional editing"]
     },
     {
       icon: <Settings className="h-8 w-8" />,
-      title: "Mixing & Mastering",
-      description: "Advanced mixing with automated mixing system and surround monitoring",
-      features: ["Control 24 Digital Mixer", "Total recall automation", "DTS/DVD audio ready"]
+      title: "Post-Production",
+      description: "Complete audio post-production and mastering services",
+      features: ["Audio mixing and mastering", "Sound design", "Audio restoration"]
     },
     {
       icon: <Film className="h-8 w-8" />,
-      title: "ADR & Voice Over",
-      description: "Post-production dialogue work and professional voice recording",
-      features: ["Film & TV sync", "Commercial voice work", "Podcast recording"]
+      title: "Voice Over & ADR",
+      description: "Professional voice recording for corporate videos and advertisements",
+      features: ["Corporate narration", "Commercial voice work", "Podcast production"]
     },
     {
       icon: <Music className="h-8 w-8" />,
-      title: "Custom Music Production",
-      description: "Songwriting and original music composition for all media",
-      features: ["Original compositions", "Jingle creation", "Music licensing"]
+      title: "Custom Audio Solutions",
+      description: "Tailored audio production for your specific business needs",
+      features: ["Brand audio identity", "Custom soundtracks", "Audio branding"]
     }
   ]
 
@@ -118,8 +118,8 @@ function ServicesSection() {
         <div className="text-center mb-16">
           <h2 className="section-title">Our Services</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            From pre-production to final mastering, we offer comprehensive audio services 
-            for musicians, filmmakers, and commercial clients.
+            Comprehensive audio production services for businesses, organizations, 
+            and content creators seeking professional quality results.
           </p>
         </div>
         
@@ -130,7 +130,7 @@ function ServicesSection() {
               className="studio-card group hover:scale-105"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="text-studio-gold mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-studio-teal mb-4 group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
               <h3 className="text-xl font-display font-semibold text-white mb-3">
@@ -142,7 +142,7 @@ function ServicesSection() {
               <ul className="text-sm text-gray-400 space-y-1">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center">
-                    <div className="w-1 h-1 bg-studio-gold rounded-full mr-2"></div>
+                    <div className="w-1 h-1 bg-studio-teal rounded-full mr-2"></div>
                     {feature}
                   </li>
                 ))}
@@ -158,15 +158,16 @@ function ServicesSection() {
 // Legacy Section Component
 function LegacySection() {
   const achievements = [
-    { number: "47+", label: "Years in Business", icon: <Clock className="h-6 w-6" /> },
-    { number: "1000+", label: "Artists Recorded", icon: <Users className="h-6 w-6" /> },
-    { number: "50+", label: "Major Label Credits", icon: <Award className="h-6 w-6" /> },
+    { number: "100+", label: "Projects Completed", icon: <Clock className="h-6 w-6" /> },
+    { number: "50+", label: "Corporate Clients", icon: <Users className="h-6 w-6" /> },
+    { number: "95%", label: "Client Satisfaction", icon: <Award className="h-6 w-6" /> },
     { number: "24/7", label: "Studio Access", icon: <Headphones className="h-6 w-6" /> }
   ]
 
   const clients = [
-    "AC/DC", "Aerosmith", "Emmylou Harris", "Rascal Flatts", "Weird Al Yankovic",
-    "The Accidentals", "Meijer Inc.", "West Michigan Whitecaps", "Lucasfilm"
+    "Stanley Steemer", "Grand Rapids Symphony", "Haworth", "Frederik Meijer Gardens & Sculpture Park",
+    "Iron Gate", "Local Spins", "Discovery Channel", "Steelcase", "Spectrum Health",
+    "NBC", "Meijer"
   ]
 
   return (
@@ -177,21 +178,21 @@ function LegacySection() {
             <h2 className="section-title mb-8">
               A Legacy of
               <br />
-              <span className="text-studio-silver">Excellence</span>
+              <span className="text-studio-blue">Excellence</span>
             </h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Since 1977, River City Studios has been the premier destination for recording 
-              in West Michigan. From our humble beginnings downtown to our current 
-              state-of-the-art facility, we've maintained our commitment to quality and innovation.
+              Since our founding, River City Studios has been committed to providing 
+              exceptional recording and production services. Our professional facilities 
+              and experienced team deliver outstanding results for every project.
             </p>
             
             <div className="grid grid-cols-2 gap-6 mb-8">
               {achievements.map((achievement, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-studio-gold mb-2 flex justify-center">
+                  <div className="text-studio-teal mb-2 flex justify-center">
                     {achievement.icon}
                   </div>
-                  <div className="text-3xl font-display font-bold text-studio-gold mb-1">
+                  <div className="text-3xl font-display font-bold text-studio-teal mb-1">
                     {achievement.number}
                   </div>
                   <div className="text-sm text-gray-400">
@@ -201,7 +202,7 @@ function LegacySection() {
               ))}
             </div>
             
-            <Button variant="silver" size="lg">
+            <Button variant="blue" size="lg">
               <Award className="mr-2 h-5 w-5" />
               View Our Portfolio
             </Button>
@@ -209,14 +210,14 @@ function LegacySection() {
           
           <div className="space-y-8">
             <div className="studio-card">
-              <h3 className="text-xl font-display font-semibold text-studio-gold mb-4">
+              <h3 className="text-xl font-display font-semibold text-studio-teal mb-4">
                 Notable Clients
               </h3>
               <div className="flex flex-wrap gap-2">
                 {clients.map((client, index) => (
                   <span 
                     key={index}
-                    className="px-3 py-1 bg-studio-gold/10 border border-studio-gold/20 rounded-full text-sm text-gray-300"
+                    className="px-3 py-1 bg-studio-teal/10 border border-studio-teal/20 rounded-full text-sm text-gray-300"
                   >
                     {client}
                   </span>
@@ -225,25 +226,25 @@ function LegacySection() {
             </div>
             
             <div className="studio-card">
-              <h3 className="text-xl font-display font-semibold text-studio-silver mb-4">
+              <h3 className="text-xl font-display font-semibold text-studio-blue mb-4">
                 Equipment Highlights
               </h3>
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-center">
-                  <Zap className="h-4 w-4 text-studio-gold mr-2" />
-                  Digidesign ProTools HD V.8
+                  <Zap className="h-4 w-4 text-studio-teal mr-2" />
+                  Pro Tools HD Audio Interface
                 </li>
                 <li className="flex items-center">
-                  <Zap className="h-4 w-4 text-studio-gold mr-2" />
-                  16 Focusrite™ class-A mic pre-amps
+                  <Zap className="h-4 w-4 text-studio-teal mr-2" />
+                  Premium mic preamps and converters
                 </li>
                 <li className="flex items-center">
-                  <Zap className="h-4 w-4 text-studio-gold mr-2" />
-                  Vintage analog tape equipment
+                  <Zap className="h-4 w-4 text-studio-teal mr-2" />
+                  Professional monitoring systems
                 </li>
                 <li className="flex items-center">
-                  <Zap className="h-4 w-4 text-studio-gold mr-2" />
-                  Surround monitoring capabilities
+                  <Zap className="h-4 w-4 text-studio-teal mr-2" />
+                  Full range of studio instruments
                 </li>
               </ul>
             </div>
@@ -267,24 +268,24 @@ function ContactSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="studio-card text-center">
-            <MapPin className="h-8 w-8 text-studio-gold mb-4 mx-auto" />
+            <MapPin className="h-8 w-8 text-studio-teal mb-4 mx-auto" />
             <h3 className="font-display font-semibold text-white mb-2">Location</h3>
             <p className="text-gray-300">
-              1935 Monroe Ave NW<br />
-              Grand Rapids, MI 49505
+              Professional Studios<br />
+              Grand Rapids, MI
             </p>
           </div>
           
           <div className="studio-card text-center">
-            <Phone className="h-8 w-8 text-studio-gold mb-4 mx-auto" />
+            <Phone className="h-8 w-8 text-studio-teal mb-4 mx-auto" />
             <h3 className="font-display font-semibold text-white mb-2">Phone</h3>
             <p className="text-gray-300">
-              (616) 454-7600
+              (616) 555-0100
             </p>
           </div>
           
           <div className="studio-card text-center">
-            <Mail className="h-8 w-8 text-studio-gold mb-4 mx-auto" />
+            <Mail className="h-8 w-8 text-studio-teal mb-4 mx-auto" />
             <h3 className="font-display font-semibold text-white mb-2">Email</h3>
             <p className="text-gray-300">
               info@rivercitystudios.com
@@ -293,7 +294,7 @@ function ContactSection() {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <Button variant="gold" size="xl">
+          <Button variant="teal" size="xl">
             <Phone className="mr-2 h-6 w-6" />
             Schedule a Tour
           </Button>
